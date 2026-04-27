@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ScriptHub — Your Elegant Script Manager</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Mobile menu button -->
+    <button class="mobile-menu-btn" id="mobileMenuBtn" title="Menu">☰</button>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <div class="logo-icon">📜</div>
+                <span>ScriptHub</span>
+            </div>
+            <div class="sidebar-actions">
+                <button class="btn-icon" id="btnAddFolder" title="Folder Baru">
+                    📁<span class="tooltip">Folder Baru</span>
+                </button>
+                <button class="btn-icon" id="btnSettings" title="Pengaturan GitHub">
+                    ⚙️<span class="tooltip">Pengaturan</span>
+                </button>
+            </div>
+        </div>
+        <div class="sidebar-body" id="sidebarBody">
+            <!-- Folders rendered here -->
+        </div>
+    </aside>
+
+    <!-- Main Editor -->
+    <main class="main-area" id="mainArea">
+        <div class="editor-topbar" id="editorTopbar">
+            <div class="current-file-info" id="fileInfo">
+                <div class="current-file-name">Pilih script</div>
+                <div class="current-file-meta"></div>
+            </div>
+            <div class="toolbar-divider"></div>
+            <button class="toolbar-btn" id="btnBold" title="Bold (Ctrl+B)"><b>B</b></button>
+            <button class="toolbar-btn" id="btnItalic" title="Italic (Ctrl+I)"><i>I</i></button>
+            <div class="toolbar-divider"></div>
+            <select class="toolbar-select" id="fontFamilySelect">
+                <option value="Inter, sans-serif">Inter</option>
+                <option value="'Playfair Display', Georgia, serif">Playfair</option>
+                <option value="'JetBrains Mono', monospace">Mono</option>
+                <option value="Georgia, serif">Georgia</option>
+                <option value="'Courier New', monospace">Courier</option>
+                <option value="Arial, sans-serif">Arial</option>
+            </select>
+            <select class="toolbar-select" id="fontSizeSelect">
+                <option value="14px">14px</option>
+                <option value="16px" selected>16px</option>
+                <option value="18px">18px</option>
+                <option value="20px">20px</option>
+                <option value="24px">24px</option>
+                <option value="28px">28px</option>
+            </select>
+            <span class="save-indicator saved" id="saveIndicator">💾 Tersimpan</span>
+        </div>
+        <div class="editor-wrapper" id="editorWrapper">
+            <div class="editor-paper" id="editorPaper">
+                <div class="no-file-selected" id="noFileMsg">
+                    <div class="big-icon">📝</div>
+                    <p>Pilih atau buat file script untuk mulai menulis</p>
+                </div>
+                <div class="editor-content" id="editorContent" contenteditable="true" style="display:none;"></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Settings Modal -->
+    <div class="modal-overlay" id="settingsModal" style="display:none;">
+        <div class="modal">
+            <h3>⚙️ Pengaturan GitHub Sync</h3>
+            <p>Simpan script kamu ke GitHub agar bisa diakses dari mana saja. Data disimpan dalam file <code>data.json</code> di repository kamu.</p>
+            <label>GitHub Username</label>
+            <input type="text" id="githubUser" placeholder="username kamu">
+            <label>Repository Name</label>
+            <input type="text" id="githubRepo" placeholder="nama-repo">
+            <label>Personal Access Token</label>
+            <input type="password" id="githubToken" placeholder="ghp_xxxxxxxxxxxx">
+            <p style="font-size:0.7rem;color:var(--text-muted);">⚠️ Token disimpan di localStorage browser ini. Pastikan token memiliki scope <strong>repo</strong>. Jangan gunakan di komputer publik.</p>
+            <div class="btn-row">
+                <button class="btn btn-secondary" id="btnTestConnection">🔍 Test Koneksi</button>
+                <button class="btn btn-secondary" id="btnCloseSettings">Batal</button>
+                <button class="btn btn-primary" id="btnSaveSettings">💾 Simpan</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- External JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
