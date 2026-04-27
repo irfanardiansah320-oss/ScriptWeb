@@ -4,12 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ScriptHub — Your Elegant Script Manager</title>
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <!-- External CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Mobile menu button -->
     <button class="mobile-menu-btn" id="mobileMenuBtn" title="Menu">☰</button>
 
+    <!-- Sidebar -->
     <aside class="sidebar" id="sidebar">
         <div class="sidebar-header">
             <div class="logo">
@@ -25,9 +29,12 @@
                 </button>
             </div>
         </div>
-        <div class="sidebar-body" id="sidebarBody"></div>
+        <div class="sidebar-body" id="sidebarBody">
+            <!-- Folders rendered here -->
+        </div>
     </aside>
 
+    <!-- Main Editor -->
     <main class="main-area" id="mainArea">
         <div class="editor-topbar" id="editorTopbar">
             <div class="current-file-info" id="fileInfo">
@@ -67,6 +74,7 @@
         </div>
     </main>
 
+    <!-- Settings Modal -->
     <div class="modal-overlay" id="settingsModal" style="display:none;">
         <div class="modal">
             <h3>⚙️ Pengaturan GitHub Sync</h3>
@@ -77,7 +85,7 @@
             <input type="text" id="githubRepo" placeholder="nama-repo">
             <label>Personal Access Token</label>
             <input type="password" id="githubToken" placeholder="ghp_xxxxxxxxxxxx">
-            <p style="font-size:0.7rem;color:var(--text-muted);">⚠️ Token disimpan di localStorage browser ini. Pastikan token memiliki scope <strong>repo</strong>.</p>
+            <p style="font-size:0.7rem;color:var(--text-muted);">⚠️ Token disimpan di localStorage browser ini. Pastikan token memiliki scope <strong>repo</strong>. Jangan gunakan di komputer publik.</p>
             <div class="btn-row">
                 <button class="btn btn-secondary" id="btnTestConnection">🔍 Test Koneksi</button>
                 <button class="btn btn-secondary" id="btnCloseSettings">Batal</button>
@@ -86,8 +94,10 @@
         </div>
     </div>
 
+    <!-- Toast container -->
     <div class="toast-container" id="toastContainer"></div>
 
+    <!-- External JavaScript -->
     <script src="script.js"></script>
 </body>
-</html>`
+</html>
